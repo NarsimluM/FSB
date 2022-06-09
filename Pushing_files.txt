@@ -1,0 +1,59 @@
+Steps to push files into github Repository through local machine
+
+Step1:first Install git using following link:
+goto->https://git-scm.com/
+
+Step2:goto git-cmd terminal and do following steps
+	1.goto respective directory where our files to be pushed into github
+	2.git init
+	3.git status
+	4.git add .
+	5.git commit -m "initial commit"
+	6.git remote add origin git@github.com:NarsimluM/FSB.git
+	7.git push origin master
+	(git@github.com: Permission denied (publickey).
+	fatal: Could not read from remote repository.
+	Please make sure you have the correct access rights
+	and the repository exists.)
+	
+	Generate the public key as follows:
+	1.open git-bash
+	
+	2.$ ls -al ~/.ssh
+	
+	3.$ ssh-keygen -t ed25519 -C "narsimlu.kmit@gmail.com"
+	Generating public/private ed25519 key pair.
+	Enter file in which to save the key (/c/Users/Ammu/.ssh/id_ed25519):
+	Enter passphrase (empty for no passphrase):
+	Enter same passphrase again:
+	Your identification has been saved in /c/Users/Ammu/.ssh/id_ed25519
+	Your public key has been saved in /c/Users/Ammu/.ssh/id_ed25519.pub
+	
+	4.$ eval "$(ssh-agent -s)"
+	Agent pid 959
+	
+	5.$ ssh-add ~/.ssh/id_ed25519
+	Enter passphrase for /c/Users/Ammu/.ssh/id_ed25519:
+	Identity added: /c/Users/Ammu/.ssh/id_ed25519 (narsimlu.kmit@gmail.com)
+	
+	Adding a new SSH key to your GitHub account
+
+	To configure your account on GitHub.com to use your new (or existing) 
+	SSH key,you'll also need to add the key to your account.
+	
+	Copy the SSH public key to your clipboard.
+
+	6.$ clip < ~/.ssh/id_ed25519.pub
+	# Copies the contents of the id_ed25519.pub file to your clipboard
+
+
+	
+Adding a SSH Key
+https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
+Pushing
+https://devconnected.com/how-to-push-git-branch-to-remote/
+
+
+git clone https://github.com/advaith13/EPAM-FDP.git
+
+https://devconnected.com/how-to-clone-a-git-repository/
